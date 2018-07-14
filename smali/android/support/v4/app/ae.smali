@@ -1,0 +1,104 @@
+.class Landroid/support/v4/app/ae;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field final synthetic fP:Ljava/util/ArrayList;
+
+.field final synthetic ga:Ljava/util/ArrayList;
+
+.field final synthetic gl:I
+
+.field final synthetic gm:Ljava/util/ArrayList;
+
+.field final synthetic gn:Ljava/util/ArrayList;
+
+.field final synthetic go:Landroid/support/v4/app/ad;
+
+
+# direct methods
+.method constructor <init>(Landroid/support/v4/app/ad;ILjava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
+    .locals 0
+
+    .line 169
+    iput-object p1, p0, Landroid/support/v4/app/ae;->go:Landroid/support/v4/app/ad;
+
+    iput p2, p0, Landroid/support/v4/app/ae;->gl:I
+
+    iput-object p3, p0, Landroid/support/v4/app/ae;->fP:Ljava/util/ArrayList;
+
+    iput-object p4, p0, Landroid/support/v4/app/ae;->gm:Ljava/util/ArrayList;
+
+    iput-object p5, p0, Landroid/support/v4/app/ae;->ga:Ljava/util/ArrayList;
+
+    iput-object p6, p0, Landroid/support/v4/app/ae;->gn:Ljava/util/ArrayList;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public run()V
+    .locals 3
+
+    .line 172
+    const/4 v0, 0x0
+
+    :goto_0
+    iget v1, p0, Landroid/support/v4/app/ae;->gl:I
+
+    if-ge v0, v1, :cond_0
+
+    .line 173
+    iget-object v1, p0, Landroid/support/v4/app/ae;->fP:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/view/View;
+
+    iget-object v2, p0, Landroid/support/v4/app/ae;->gm:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-static {v1, v2}, Landroid/support/v4/view/n;->a(Landroid/view/View;Ljava/lang/String;)V
+
+    .line 174
+    iget-object v1, p0, Landroid/support/v4/app/ae;->ga:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/view/View;
+
+    iget-object v2, p0, Landroid/support/v4/app/ae;->gn:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-static {v1, v2}, Landroid/support/v4/view/n;->a(Landroid/view/View;Ljava/lang/String;)V
+
+    .line 172
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 176
+    :cond_0
+    return-void
+.end method

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.quickstep.views.RecentsViewContainer android:visibility="invisible" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/overview_clear_all_button" />
+    <com.android.quickstep.views.LauncherRecentsView android:theme="@style/HomeScreenElementTheme" android:id="@id/overview_panel" android:focusableInTouchMode="true" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:outlineProvider="none" android:accessibilityPaneTitle="@string/accessibility_recent_apps" />
+</com.android.quickstep.views.RecentsViewContainer>

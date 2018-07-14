@@ -1,0 +1,6 @@
+build/
+dist/
+.DS_Store
+*.apk
+!tools/framework-res.apk
+mpl.jks

@@ -1,0 +1,27 @@
+if: tag IS blank
+env:
+  global:
+  - TERM=dumb
+  - secure: Sj6W/iy+wglAgdv7UkItAbNBrCmWSBrwE2W0YvqtDEPKANiHeTJQ5h3+goCMMeuwHSFQCfg6rdm7oLiUJYCgwj9Rqo62B951nfBnsnAjJ3TabrfkHmvVoNBS44dVEadWJ/HKghMNjDEL9MBPRtneJhI8E7hshOJE3Q5SGLlZfyU3fvdXZwFJl8l06ursb22RAvPqtaL3d8iE2Y74GWnTBfAScTOcr8XQ1xGqKVIzgt8ER4YGAR3J6NYeZVFQ/BKL6x6Nl6w6Gjoj7fUIDTLuQpybbahTYDhVrHmrLfqMW/+/sjxskoCypAAXoJEkTM16C6LHdarVs0IHd5dXA5ceHzA8BwQwrANd5BQIJw8W0frMfAIHNGOzb6Iy7LI5ox/Q4VfDkMODB/DsAJwck7dcJkcS1ceD/Kdj/7HmmGS1pqbjj9XPR7QfoBCngrQBS0o9Y8s/FakcrHZmAFoAq7H0vOILHxFMG0tkRyCaBusLv4CTdlcEw7uCWMcbn16mFLv823dDqjSjloagNWYp29oKOUDujKXBcorXfV+WoPqyqNErO/E0ECmIBU6S59Cya05FK1NkeeB8RrxgOU3v08nxv0H9jBazr94B8WGB7odIIpact0q890FkESFYK3+HvvVubwfZKvPi9tlNqJSIGk1kJzj5ClV1FHEP8KfxvFRJvm4=
+  - secure: jFhSuX6HZG9Jv47zGPvZp28ijxebMvyZKLkxSm2qwNqWZJsVILAETN8613olPr0iLo8Ko0l5GdYdN7thZ0VwoWJm/aM8I3u6MvlkOqF1bNWNr+KSwGSi+LQUnNT8YjaoBZeumSuOjrybaRCGIBlEWLkAQme+HEOaQTE3gjafdvuituFlZ8GGeJ/qC4QiwPBLNfWyhVsEkmEaEOLYrA1UDVKja69pYHa4aZhJAKxbn9MRZfijFnakvlE7bRfXfnQCxmC1DqUHh3CsfTOQEUPlSI6EoXMe73c/IYksq5pkt3Vvgrzy05V9PaCrzWZF/HGheXs4OhB6dGqhkmzDpUxdEXOOrK02eV3oERG50Jr95xR1WFJmk1SKthpD5BTq1BIfWMBF+cuBKKzrT0tCzzu1XNg+KlXjGDR/ol72QV5SpyISVGsWWXslje7ogEQg97PtRf/V+O9I8PkZQz1eZXn4IxP4PF1tuNdTU3jErwUGozcbeTgwnXt0JDsQxOxk54wNLi4xXtQ8tpEOntHLWcbCLJYahlFSgkEsUwnsQlEVRLkZa0iOjV5YV+IbfLHhQdeIPOZNZ2i5cMBsrlJXHVZh8aOeLJBBISOXs3JsDCanSDTnnFGAqphtqI6PIAgxDOEo5Ehw8s7NARZppmuQbcwxLcazK6eDUHZeyU5BsLmuDxc=
+language: java
+before_script:
+- export APK_NAME="Pixel 2 Launcher modded 7 build ${TRAVIS_BUILD_NUMBER}.apk"
+script:
+- bash ./ci.sh
+before_deploy:
+- git config --local user.name "paphonb"
+- git config --local user.email "paphonb@gmail.com"
+- git tag "6_${TRAVIS_BUILD_NUMBER}" --force
+deploy:
+- provider: script
+  skip_cleanup: true
+  script: tools/telegram.sh
+  on:
+    branch: master
+branches:
+  only:
+  - master
+before_install:
+- openssl aes-256-cbc -K $encrypted_548e55e63b1d_key -iv $encrypted_548e55e63b1d_iv
+  -in mpl.jks.enc -out mpl.jks -d
